@@ -3,9 +3,9 @@ language: php
 services:
   # - memcached
   # - mongodb
-  - mysql
+#  - mysql
   # - rabbitmq
-  - redis-server
+ # - redis-server
 
 php:
   - 5.3
@@ -22,11 +22,11 @@ before_script:
   - mysql database_name < config/schema-mysql.sql
 
   # extensions
-  - echo "extension = amqp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+ # - echo "extension = amqp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+#  - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+ # - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  #- echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
   - composer self-update
   - composer install
@@ -37,5 +37,5 @@ script:
   - phpcs --standard=psr2 src/
   - phpunit --coverage-text --coverage-clover build/logs/clover.xml
 
-after_success:
-  - "composer require --dev satooshi/php-coveralls:dev-master && php vendor/bin/coveralls -v"
+#after_success:
+ # - "composer require --dev satooshi/php-coveralls:dev-master && php vendor/bin/coveralls -v"
