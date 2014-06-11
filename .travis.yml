@@ -1,11 +1,11 @@
 language: php
 
 services:
-  # - memcached
-  # - mongodb
-    - mysql
-  # - rabbitmq
- # - redis-server
+   - memcached
+   - mongodb
+   - mysql
+   - rabbitmq
+   - redis-server
 
 php:
   - 5.3
@@ -22,11 +22,11 @@ before_script:
   - mysql database_name < config/schema-mysql.sql
 
   # extensions
- # - echo "extension = amqp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "extension = amqp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-#  - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
- # - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  #- echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
   - sudo composer self-update
   #- composer install
